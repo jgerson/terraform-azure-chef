@@ -29,7 +29,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     disable_password_authentication = true
 
     ssh_keys {
-      path     = "/Users/agjennings/.ssh/authorized_keys"
+      path     = "/home/azureuser/.ssh/authorized_keys"
       key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDd7r0PVvR2AUFX9T0wFBfSTQPaNlkBYSphKsshtDvLGq3USHiWNJPwh7F8xqw/DCJNmYZrdReBroWEUShfF6nE8gQcLI8IJO7FYwW/nPs0/GUs6dZQ2FYCnciwqI2EpXWvqt8DmqjxQy0Rp57XEFNzJFzbb5e9P59mEjBy8a8b+orCTHRnHNTh9KfG3x4k5i3JMBy7OojfKvpE25oA27hxwKvJHrl5y4fHqgBCa4NfoWiHwwz1oRPfNdKBFKOuw2mBOFySB8c5aR/zmlNyUYL4+xDB5uweCwSRY2m1oOeApR9kdSptQzeSuxtxqVTYqf9CAT1TEQrNfSLnRhnMEASf agjennings@Amandas-MacBook-Pro-2.local"
     }
   }
