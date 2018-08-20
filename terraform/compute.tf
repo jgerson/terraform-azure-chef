@@ -29,8 +29,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     disable_password_authentication = true
 
     ssh_keys {
-      path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMlVfLSw1cgoBXt9pUvsmhevU1TmLZCJfR1UK2LJqD9raSbb2n96+1F0q6xqUTA/D9NPSOtIhPx39DSZvBkEd+3CFI2KxrlgeChHe7GBeDWfV8/B5Wwq8hbtDQmqjf8/NtM0yfu8L/9zR0EOiicPlAJmxBWm5wMXYH1y1KUk7qq5sOnWr/lGjKsxoxcKZZiUTIH9lZ6Jr9R4uHz4TwyGgVUpwmRhwT98Wcn01lRF5vc/J2F3pY7ZOMybY8oo5MLEFeLFRHMcHnl3REbkZ1xchvqiGIB27jXxwJ+7W8g7AfSta1PDDixuiehtkQ+UtdMrm5un4wsrxxjDWXgszA7YDV agjennings@Amandas-MBP-2.fios-router.home\n"
+      path     = "/Users/agjennings/.ssh/authorized_keys"
+      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDd7r0PVvR2AUFX9T0wFBfSTQPaNlkBYSphKsshtDvLGq3USHiWNJPwh7F8xqw/DCJNmYZrdReBroWEUShfF6nE8gQcLI8IJO7FYwW/nPs0/GUs6dZQ2FYCnciwqI2EpXWvqt8DmqjxQy0Rp57XEFNzJFzbb5e9P59mEjBy8a8b+orCTHRnHNTh9KfG3x4k5i3JMBy7OojfKvpE25oA27hxwKvJHrl5y4fHqgBCa4NfoWiHwwz1oRPfNdKBFKOuw2mBOFySB8c5aR/zmlNyUYL4+xDB5uweCwSRY2m1oOeApR9kdSptQzeSuxtxqVTYqf9CAT1TEQrNfSLnRhnMEASf agjennings@Amandas-MacBook-Pro-2.local"
     }
   }
 
