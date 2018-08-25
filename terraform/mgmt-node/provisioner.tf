@@ -3,9 +3,9 @@ variable "chef_provision" {
   description               = "Configuration details for chef server"
 
   default = {
-    server_url              = "https://api.chef.io/organizations/org"
+    server_url              = "https://api.chef.io/organizations/ajennings"
     user_name               = "ajennings"
-    user_key_path           = "~/.chef/userkey.pem"
+    user_key_path           = "~/.chef/ajennings-chef.pem"
     recreate_client         = true
     }
 }
