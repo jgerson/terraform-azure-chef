@@ -1,4 +1,4 @@
-resource "azurerm" "web" {
+resource "azurerm" {
   # ...
 
   provisioner "chef" {
