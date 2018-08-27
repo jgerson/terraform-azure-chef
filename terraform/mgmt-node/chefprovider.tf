@@ -3,7 +3,7 @@ provider "chef" {
   server_url = "https://api.chef.io/organizations/ajennings/"
 
   # You can set up a "Client" within the Chef Server management console.
-  client_name  = "terraform"
+  client_name  = "chef-terraform-validator"
   key_material = "${var.key_material}"
 }
 
