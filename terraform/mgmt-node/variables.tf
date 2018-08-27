@@ -36,6 +36,11 @@ output "vn_address_space" {
   value = "${azurerm_virtual_network.myterraformnetwork.address_space}"
 }
 
+variable "key_material" {
+   description   = "name of the SSH key for Chef"
+   default       = "chef-terraform"
+}
+
 /*variable "ARM_SUBSCRIPTION_ID" {
  
 }
