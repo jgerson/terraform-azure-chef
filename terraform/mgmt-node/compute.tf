@@ -1,4 +1,4 @@
-# Create virtual machine
+#Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
   name                  = "myVM"
   location              = "East US"
