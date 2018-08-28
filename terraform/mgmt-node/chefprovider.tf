@@ -1,4 +1,5 @@
-resource "azurerm_virtual_machine" "myterraformvm" {
+resource "azurerm_virtual_machine" "myterraform" {
+ 
 # ...
 
   provisioner "chef" {
