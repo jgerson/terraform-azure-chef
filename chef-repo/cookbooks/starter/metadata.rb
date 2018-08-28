@@ -1,5 +1,0 @@
-name 'starter'
-description 'A basic starter cookbook'
-version '1.0.0'
-maintainer 'Amanda Jennings'
-maintainer_email 'ajennings@hashicorp.com'
