@@ -1,11 +1,3 @@
-resource "azurerm_virtual_machine" "ajennings_vm" {
-  name                  = "${local.virtual_machine_name}"
-  location              = "${azurerm_resource_group.main.location}"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  network_interface_ids = ["${azurerm_network_interface.main.id}"]
-  vm_size               = "Standard_D1_v2"
-
-
   # ...
 
   provisioner "chef" {
