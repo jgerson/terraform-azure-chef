@@ -1,4 +1,4 @@
-#Create virtual machine
+reate virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
   name                  = "myVM"
   location              = "East US"
@@ -35,12 +35,29 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 }
   }
 
+}
+
   boot_diagnostics {
     enabled     = "true"
     storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
   }
 
-# ...
+
+  # Copies Certificates
+  provisioner "file" {
+      source = ".chef/trusted_certs"
+      destination - "/tmp"
+  }
+
+  # Configure certificates
+  provisioner "remote-exec" {
+    inline = [
+      "sudo service iptables stop",
+      "sudo chkconfig iptables off",
+      "sudo mkdir -p /etc/chef",
+      "sudo mv /tmp/trusted_certs /etc/chef/."
+    ]
+  }
 
   provisioner "chef" {
     attributes_json = <<-EOF
@@ -56,11 +73,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
       }
     EOF
 
-    use_policyfile  = true
-    policy_group    = "${var.environment}"
-    policy_name     = "${var.project}"
     environment     = "ajennings_test"
-    run_list        = ["cookbook::recipe"]
+    #run_list        = ["cookbook::recipe"]
     node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/ajennings"
     recreate_client = true
