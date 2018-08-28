@@ -88,4 +88,3 @@ resource "azurerm_virtual_machine" "myterraformvm" {
   tags {
     environment = "Terraform Azure Chef Demo"
   }
-}
