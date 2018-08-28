@@ -50,8 +50,15 @@ resource "azurerm_virtual_machine" "myterraformvm" {
       "sudo mkdir -p /etc/chef",
       "sudo mv /tmp/trusted_certs /etc/chef/."
     ]
+  connection {
+    type     = "ssh"
+    user     = "azureuser"
+    private_key = "${var.private_key}"
   }
+}
 
+
+/*
   provisioner "chef" {
     attributes_json = <<-EOF
       {
@@ -71,12 +78,13 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/ajennings"
     recreate_client = true
-    user_name       = "chef-terraform"
+    user_name       = "ajennings"
     user_key        = "${var.key_material}"
     version         = "12.21.1"
     # If you have a self signed cert on your chef server change this to :verify_none
     ssl_verify_mode = ":verify_none"
 }
+*/
 
   tags {
     environment = "Terraform Azure Chef Demo"
