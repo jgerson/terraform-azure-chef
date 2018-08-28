@@ -49,16 +49,19 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         "app": {
           "cluster1": {
             "nodes": [
-              "webserver1"
+              "chef-terraform"
             ]
           }
         }
       }
     EOF
 
+    use_policyfile  = true
+    policy_group    = "${var.environment}"
+    policy_name     = "${var.project}"
     environment     = "ajennings_test"
     run_list        = ["cookbook::recipe"]
-    node_name       = "webserver1"
+    node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/ajennings"
     recreate_client = true
     user_name       = "chef-terraform"
