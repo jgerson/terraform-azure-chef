@@ -1,5 +1,10 @@
-resource "azurerm_virtual_machine" "myterraform" {
- 
+resource "azurerm_virtual_machine" "myterraformvm" {
+  name                  = "myVM"
+  location              = "East US"
+  resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
+  network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
+  vm_size               = "Standard_D1_v2"
+
 # ...
 
   provisioner "chef" {
