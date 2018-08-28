@@ -1,4 +1,4 @@
-resource "azurerm_virtual_machine" "web" {
+resource "azurerm_resource_group" "ajennings-resource-group" {
   # ...
 
   provisioner "chef" {
