@@ -1,4 +1,5 @@
-  # ...
+resource "azurerm_virtual_machine" "myterraformvm" {
+# ...
 
   provisioner "chef" {
     attributes_json = <<-EOF
