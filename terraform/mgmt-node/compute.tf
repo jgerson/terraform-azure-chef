@@ -83,7 +83,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     EOF
 
     environment     = "ajennings_test"
-   #  run_list        = ["cookbook::recipe"]
+    run_list        = ["cookbook::recipe"]
     node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/ajennings"
     recreate_client = true
