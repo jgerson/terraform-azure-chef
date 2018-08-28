@@ -38,7 +38,7 @@ output "vn_address_space" {
 
 variable "key_material" {
    description   = "name of the SSH key for Chef"
-   default       = "chef-terraform"
+   default       = "ajennings"
 }
 
 variable "private_key" {

@@ -41,7 +41,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
   }
 
-
+/*
   # Configure certificates
   provisioner "remote-exec" {
     inline = [
@@ -57,10 +57,19 @@ resource "azurerm_virtual_machine" "myterraformvm" {
   }
 }
 
+*/
 
-/*
   provisioner "chef" {
-    attributes_json = <<-EOF
+
+     connection {
+           type        = "ssh"
+           user        = "azureuser"
+           private_key = "${var.private_key}"
+   
+}
+
+
+   attributes_json = <<-EOF
       {
         "key": "value",
         "app": {
@@ -74,17 +83,18 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     EOF
 
     environment     = "ajennings_test"
-    run_list        = ["cookbook::recipe"]
+   #  run_list        = ["cookbook::recipe"]
     node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/ajennings"
     recreate_client = true
+    fetch_chef_certificates = true
     user_name       = "ajennings"
     user_key        = "${var.key_material}"
     version         = "12.21.1"
     # If you have a self signed cert on your chef server change this to :verify_none
     ssl_verify_mode = ":verify_none"
 }
-*/
+
 
   tags {
     environment = "Terraform Azure Chef Demo"
