@@ -1,22 +1,29 @@
-# Configure the Chef provider
-provider "chef" {
-  server_url = "https://api.chef.io/organizations/ajennings/"
+resource "azurerm" "" {
+  # ...
 
-  # You can set up a "Client" within the Chef Server management console.
-  client_name  = "ajennings-validator"
-  key_material = "${var.key_material}"
-}
+  provisioner "chef" {
+    attributes_json = <<-EOF
+      {
+        "key": "value",
+        "app": {
+          "cluster1": {
+            "nodes": [
+              "webserver1"
+            ]
+          }
+        }
+      }
+    EOF
 
-# Create a Chef Environment
-resource "chef_environment" "production" {
-  name = "production"
-}
-
-# Create a Chef Role
-resource "chef_role" "app_server" {
-  name = "app_server_ajennings"
-
-  run_list = [
-    "recipe[terraform]",
-  ]
+    environment     = "_default"
+    run_list        = ["cookbook::recipe"]
+    node_name       = "webserver1"
+    server_url      = "https://api.chef.io/organizations/ajennings"
+    recreate_client = true
+    user_name       = "chef-terraform"
+    user_key        = "${var.key_material}"
+    version         = "12.21.1"
+    # If you have a self signed cert on your chef server change this to :verify_none
+    ssl_verify_mode = ":verify_none"
+  }
 }
