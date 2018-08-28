@@ -35,19 +35,12 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 }
   }
 
-}
 
   boot_diagnostics {
     enabled     = "true"
     storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
   }
 
-
-  # Copies Certificates
-  provisioner "file" {
-      source = ".chef/trusted_certs"
-      destination =  "/tmp"
-  }
 
   # Configure certificates
   provisioner "remote-exec" {
@@ -88,3 +81,4 @@ resource "azurerm_virtual_machine" "myterraformvm" {
   tags {
     environment = "Terraform Azure Chef Demo"
   }
+}
