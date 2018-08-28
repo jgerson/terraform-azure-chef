@@ -41,6 +41,16 @@ variable "key_material" {
    default       = "chef-terraform"
 }
 
+variable "environment" {
+   description   = "name of the Chef environment"
+   default       = "ajennings_test"
+}
+
+variable "project" {
+   description   = "name of Chef project"
+   default       = "ajennings_project"
+}
+
 /*variable "ARM_SUBSCRIPTION_ID" {
  
 }
