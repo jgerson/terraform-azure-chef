@@ -46,7 +46,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
   # Copies Certificates
   provisioner "file" {
       source = ".chef/trusted_certs"
-      destination - "/tmp"
+      destination =  "/tmp"
   }
 
   # Configure certificates
