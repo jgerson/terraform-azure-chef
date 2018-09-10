@@ -18,3 +18,7 @@ execute "apt-get update" do
    action [ :enable, :start ]
  end
       
+# Download Consul 
+execute "wget https://releases.hashicorp.com/consul/1.2.2/consul_1.2.2_linux_amd64.zip" do
+  command "wget https://releases.hashicorp.com/consul/1.2.2/consul_1.2.2_linux_amd64.zip"
+end 
