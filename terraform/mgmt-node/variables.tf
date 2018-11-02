@@ -32,8 +32,8 @@ variable "vn_location" {
   description = "This variable defines the virtual network location"
 }
 
-output "vn_address_space" {
-  value = "${azurerm_virtual_network.myterraformnetwork.address_space}"
+output "address" {
+  value = "${azurerm_public_ip.myterraformpublicip.ip_address}"
 }
 
 variable "key_material" {
