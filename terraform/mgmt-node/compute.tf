@@ -56,7 +56,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     EOF
 
     environment     = "jgerson_test"
-    run_list        = ["recipe[chef_terraform_azure_demo]"]
+    run_list        = ["recipe[demo-ecommerce::default]"]
     node_name       = "chef-terraform"
     server_url      = "https://api.chef.io/organizations/jgerson"
     recreate_client = true
