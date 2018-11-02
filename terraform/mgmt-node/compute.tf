@@ -30,7 +30,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
     ssh_keys {
       path     = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDd7r0PVvR2AUFX9T0wFBfSTQPaNlkBYSphKsshtDvLGq3USHiWNJPwh7F8xqw/DCJNmYZrdReBroWEUShfF6nE8gQcLI8IJO7FYwW/nPs0/GUs6dZQ2FYCnciwqI2EpXWvqt8DmqjxQy0Rp57XEFNzJFzbb5e9P59mEjBy8a8b+orCTHRnHNTh9KfG3x4k5i3JMBy7OojfKvpE25oA27hxwKvJHrl5y4fHqgBCa4NfoWiHwwz1oRPfNdKBFKOuw2mBOFySB8c5aR/zmlNyUYL4+xDB5uweCwSRY2m1oOeApR9kdSptQzeSuxtxqVTYqf9CAT1TEQrNfSLnRhnMEASf agjennings@Amandas-MacBook-Pro-2.local"
+      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9YxHC06Sjqmyn9HXhVmgp0U+Y68CCC1Cmpgf2wV5KwW4u+i6c3rzkGSTIpCXj8giYDNGQ3WQ6l/iMSCbx/UQS8/XmvNUbVqmD/u8LXfjvrURV2hPxXlDL6V/aAu2jkTKblTh11cXrpWJs+M0xXl2xkSrA5qxHxaeps/l9A7mbzh9yP60pWQw3Ka6rEuWyVRAJWbQMe0sLYgg1FFEEEihulzHvCUx8PO3g9XhG/15GyYr1CnBMj/ALvj99vmpK8yKQOYAop0n3mObBvkzQOzXSmSh1d3OOcPKEV7OD+DBNsfqTF1Ig0YTeYVD8k9lPllTOnObvVuC7Rj2teS0PQfar jgerson@DESKTOP-AOLJGHO"
 
     }
   }
@@ -55,13 +55,13 @@ resource "azurerm_virtual_machine" "myterraformvm" {
       }
     EOF
 
-    environment     = "ajennings_test"
+    environment     = "jgerson_test"
     run_list        = ["recipe[chef_terraform_azure_demo]"]
     node_name       = "chef-terraform"
-    server_url      = "https://api.chef.io/organizations/ajennings"
+    server_url      = "https://api.chef.io/organizations/jgerson"
     recreate_client = true
     fetch_chef_certificates = true
-    user_name       = "ajennings"
+    user_name       = "jgerson"
     user_key        = "${var.key_material}"
     version         = "12.21.1"
     # If you have a self signed cert on your chef server change this to :verify_none
