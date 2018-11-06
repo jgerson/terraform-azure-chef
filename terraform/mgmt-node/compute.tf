@@ -64,7 +64,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     user_name       = "jgerson"
     user_key        = "${var.key_material}"
     version         = "12.21.1"
-    # If you have a self signed cert on your chef server change this to :verify_none
+    # If you have a self signed cert on your chef server change to :verify_none
     ssl_verify_mode = ":verify_none"
 }
   tags {
